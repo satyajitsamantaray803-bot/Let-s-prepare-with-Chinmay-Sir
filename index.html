@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Let's Prepare with Chinmay Sir</title>
+<meta name="description" content="Special Education online learning platform — IDD, HI and VI.">
+<style>
+:root{--p:#3157d5;--p2:#704de8;--bg:#f6f8ff;--ink:#17213a;--muted:#68738a;--line:#e5e8f2}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--ink)}a{text-decoration:none;color:inherit}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}.nav{max-width:1150px;margin:auto;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;gap:15px}.brand{font-weight:900;color:var(--p)}.brand small{display:block;font-size:10px;color:var(--muted);letter-spacing:1px}.links{display:flex;gap:18px;font-size:14px;font-weight:700}.btn{display:inline-block;border:0;border-radius:12px;padding:11px 17px;font-weight:800;background:linear-gradient(135deg,var(--p),var(--p2));color:white;cursor:pointer}.ghost{background:#eef1ff;color:var(--p)}
+.hero{max-width:1150px;margin:auto;padding:75px 20px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}.pill{display:inline-block;padding:7px 12px;border-radius:99px;background:#eaf0ff;color:var(--p);font-size:12px;font-weight:800}.hero h1{font-size:clamp(42px,6vw,68px);line-height:1.03;margin:18px 0}.hero h1 span{color:var(--p)}.hero p{color:var(--muted);font-size:18px}.box{background:linear-gradient(140deg,#263d9d,#704de8);color:white;padding:34px;border-radius:28px;min-height:280px}.box h2{font-size:32px;margin-top:70px}.stats{display:flex;gap:10px}.stat{background:#ffffff1c;border-radius:12px;padding:12px;flex:1}.stat b{display:block;font-size:22px}
+section{max-width:1150px;margin:auto;padding:60px 20px}.head{text-align:center;margin-bottom:28px}.head h2{font-size:34px;margin:0 0 6px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:23px;box-shadow:0 8px 25px #22305b0b}.icon{font-size:30px}.tag{display:inline-block;background:#eef1ff;color:var(--p);padding:5px 8px;border-radius:8px;font-size:11px;font-weight:800}.card p{color:var(--muted);font-size:14px}.resource{background:white;border:1px solid var(--line);border-radius:14px;padding:14px;margin:9px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}.resource a{color:var(--p);font-weight:800}.status{padding:12px;border-radius:12px;background:#fff7df;color:#775600}.class-card{min-height:145px}.small{font-size:12px;color:var(--muted)}footer{background:#11192f;color:#dbe0f0;padding:35px 20px;text-align:center}
+@media(max-width:800px){.links{display:none}.hero{grid-template-columns:1fr;padding-top:45px}.grid{grid-template-columns:1fr}.hero h1{font-size:48px}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+</head>
+<body>
+<header><div class="nav">
+<a class="brand" href="#">LET'S PREPARE<small>WITH CHINMAY SIR</small></a>
+<nav class="links"><a href="#courses">Courses</a><a href="#notes">Notes</a><a href="#classes">Classes</a><a href="#tests">MCQ</a><a href="#about">About</a></nav>
+<a class="btn ghost" id="loginBtn" href="login.html">Student Login</a>
+</div></header>
+
+<section class="hero"><div><span class="pill">ONLINE SPECIAL EDUCATION LEARNING</span><h1>Learn. Prepare.<br><span>Succeed.</span></h1><p>A simple, student-friendly learning platform for Special Education preparation — IDD, HI and VI.</p><a class="btn" href="#courses">Explore Courses →</a></div><div class="box"><span>YOUR LEARNING JOURNEY</span><h2>Everything you need in one place.</h2><div class="stats"><div class="stat"><b>03</b>Courses</div><div class="stat"><b>PDF</b>Notes</div><div class="stat"><b>MCQ</b>Practice</div></div></div></section>
+
+<section id="courses"><div class="head"><h2>Courses</h2><p class="muted">Choose your subject.</p></div><div class="grid">
+<div class="card"><div class="icon">🧠</div><span class="tag">IDD</span><h3>Intellectual & Developmental Disabilities</h3><p>Concepts, notes and exam-focused preparation.</p></div>
+<div class="card"><div class="icon">👂</div><span class="tag">HI</span><h3>Hearing Impairment</h3><p>Important concepts, communication and revision.</p></div>
+<div class="card"><div class="icon">👁️</div><span class="tag">VI</span><h3>Visual Impairment</h3><p>Essential concepts, notes and practice.</p></div>
+</div></section>
+
+<section id="notes"><div class="head"><h2>Notes & PDFs</h2><p class="muted">Resources published by Chinmay Sir appear here automatically.</p></div><div id="resources"><div class="status">Loading notes...</div></div></section>
+
+<section id="classes"><div class="head"><h2>Online Classes</h2><p class="muted">Live and recorded learning.</p></div><div id="classesGrid" class="grid"><div class="status">Loading classes...</div></div></section>
+
+<section id="tests"><div class="head"><h2>MCQ Practice</h2><p class="muted">Online tests and automatic results.</p></div><div class="card"><h3>Practice Tests</h3><p>MCQ tests will be connected in the next stage.</p></div></section>
+
+<section id="about"><div class="head"><h2>About Chinmay Sir</h2><p class="muted">Teaching with a purpose.</p></div><div class="card"><h3>Let's Prepare with Chinmay Sir</h3><p class="muted">A dedicated learning space for Special Education students, organized notes, classes and exam-oriented practice.</p></div></section>
+<footer>© 2026 Let's Prepare with Chinmay Sir · IDD · HI · VI</footer>
+
+<script>
+const { createClient } = supabase;
+const db = createClient(window.SUPABASE_URL, window.SUPABASE_PUBLISHABLE_KEY);
+
+function esc(value){
+  return String(value ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+}
+function dateText(v){
+  if(!v) return "";
+  const d = new Date(v);
+  if(Number.isNaN(d.getTime())) return esc(v);
+  return d.toLocaleString([], {dateStyle:"medium", timeStyle:"short"});
+}
+
+async function loadResources(){
+  const box=document.getElementById("resources");
+  const {data,error}=await db.from("resources").select("*").order("created_at",{ascending:false});
+  if(error){box.innerHTML='<div class="status">Notes are not available yet. Please check the database policies.</div>'; return;}
+  if(!data.length){box.innerHTML='<p class="muted">No notes published yet. New PDFs will appear here.</p>'; return;}
+  box.innerHTML=data.map(r=>`
+    <div class="resource">
+      <div><strong>${esc(r.title)}</strong><div class="small">${esc(r.course_code||"All courses")} · ${esc(r.resource_type||"PDF")}</div></div>
+      <a href="${esc(r.url)}" target="_blank" rel="noopener">Open →</a>
+    </div>`).join("");
+}
+
+async function loadClasses(){
+  const box=document.getElementById("classesGrid");
+  const {data,error}=await db.from("classes").select("*").order("scheduled_at",{ascending:true});
+  if(error){box.innerHTML='<div class="status">Classes are not available yet. Please check the database policies.</div>'; return;}
+  if(!data.length){box.innerHTML='<div class="card class-card"><h3>Classes coming soon</h3><p>Live and recorded class links will appear here.</p></div>'; return;}
+  box.innerHTML=data.map(c=>`
+    <div class="card class-card">
+      <h3>${esc(c.title)}</h3>
+      <p>${esc(c.description||"")}</p>
+      ${c.scheduled_at?`<div class="small">📅 ${dateText(c.scheduled_at)}</div>`:""}
+      <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+        ${c.meeting_url?`<a class="btn" href="${esc(c.meeting_url)}" target="_blank" rel="noopener">Join Live</a>`:""}
+        ${c.video_url?`<a class="btn ghost" href="${esc(c.video_url)}" target="_blank" rel="noopener">Watch Video</a>`:""}
+      </div>
+    </div>`).join("");
+}
+
+async function init(){
+  const {data:{session}}=await db.auth.getSession();
+  if(session){
+    const b=document.getElementById("loginBtn");
+    b.textContent="My Account";
+    b.href="login.html";
+  }
+  await Promise.all([loadResources(),loadClasses()]);
+}
+init();
+</script>
+</body>
+</html>

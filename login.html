@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Student Login — Let's Prepare with Chinmay Sir</title>
+<style>
+body{font-family:system-ui;background:#f5f7ff;display:grid;place-items:center;min-height:100vh;margin:0;padding:20px}
+.box{background:white;padding:30px;border-radius:20px;width:min(430px,92%);box-shadow:0 15px 40px #22305b18}
+input{width:100%;box-sizing:border-box;padding:13px;margin:7px 0;border:1px solid #ddd;border-radius:10px}
+button{width:100%;padding:13px;border:0;border-radius:10px;background:#3157d5;color:#fff;font-weight:800;margin-top:10px;cursor:pointer}
+.alt{background:#eef1ff;color:#3157d5}.msg{padding:11px;border-radius:10px;margin:12px 0;background:#f1f5ff;color:#334}.hide{display:none}
+a{color:#3157d5;text-decoration:none;font-weight:700}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+</head>
+<body>
+<div class="box">
+<h2>Student Login</h2>
+<p id="intro">Login to access your student account.</p>
+<div id="message" class="msg hide"></div>
+<div id="form">
+<input id="email" type="email" placeholder="Email address" autocomplete="email">
+<input id="password" type="password" placeholder="Password" autocomplete="current-password">
+<button id="login">Login</button>
+<button id="signup" class="alt">Create Student Account</button>
+</div>
+<div id="account" class="hide">
+<p>You are logged in as <strong id="userEmail"></strong>.</p>
+<button id="logout">Logout</button>
+</div>
+<p><a href="index.html">← Back to website</a></p>
+</div>
+<script>
+const {createClient}=supabase;
+const db=createClient(window.SUPABASE_URL,window.SUPABASE_PUBLISHABLE_KEY);
+const msg=document.getElementById("message");
+function show(text){msg.textContent=text;msg.classList.remove("hide")}
+function setAccount(session){
+  document.getElementById("form").classList.toggle("hide",!!session);
+  document.getElementById("account").classList.toggle("hide",!session);
+  document.getElementById("userEmail").textContent=session?.user?.email||"";
+}
+document.getElementById("login").onclick=async()=>{
+  const email=document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value;
+  if(!email||!password){show("Please enter email and password.");return}
+  const {error}=await db.auth.signInWithPassword({email,password});
+  if(error){show(error.message);return}
+  show("Login successful.");
+  const {data:{session}}=await db.auth.getSession(); setAccount(session);
+};
+document.getElementById("signup").onclick=async()=>{
+  const email=document.getElementById("email").value.trim();
+  const password=document.getElementById("password").value;
+  if(!email||password.length<6){show("Enter a valid email and a password of at least 6 characters.");return}
+  const {data,error}=await db.auth.signUp({email,password});
+  if(error){show(error.message);return}
+  if(data.session){show("Account created and logged in.");setAccount(data.session);}
+  else show("Account created. Check your email if email confirmation is enabled, then log in.");
+};
+document.getElementById("logout").onclick=async()=>{await db.auth.signOut();show("Logged out.");setAccount(null)};
+db.auth.getSession().then(({data:{session}})=>setAccount(session));
+</script>
+</body>
+</html>

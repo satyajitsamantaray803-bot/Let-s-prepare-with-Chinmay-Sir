@@ -1,0 +1,54 @@
+LET'S PREPARE WITH CHINMAY SIR — SUPABASE CONNECTED VERSION
+
+This ZIP is prepared for the Supabase project you created and your Vercel static website.
+
+WHAT IS NOW CONNECTED
+- Supabase browser client
+- Public read of resources/notes
+- Public read of online classes
+- Student email/password login
+- Student account creation
+- RLS policies for read-only public data
+
+STEP 1 — SUPABASE SQL
+1. Open Supabase → SQL Editor.
+2. Create a new query.
+3. Open/copy the file "supabase_schema.sql" from this ZIP.
+4. Paste all of it.
+5. Tap Run.
+6. It should show Success.
+
+If you already created the three tables, the script is safe to run again because it uses IF NOT EXISTS and replaces the named read policies.
+
+STEP 2 — AUTH
+Supabase → Authentication → Providers.
+Make sure Email provider is enabled.
+
+STEP 3 — DEPLOY TO VERCEL
+Upload this ZIP/folder to the same Vercel project using Vercel Drop.
+After deployment, open your Vercel website and test:
+- Notes section
+- Online Classes section
+- Student Login
+
+STEP 4 — ADD YOUR FIRST TEST STUDENT
+Open Student Login on your website.
+Enter an email you control and a password with at least 6 characters.
+Tap "Create Student Account".
+If email confirmation is enabled, confirm the email first.
+
+IMPORTANT SECURITY
+- The frontend uses the Supabase PUBLISHABLE key. That key is designed for browser use when RLS is configured.
+- NEVER put a Supabase "secret" or "service_role" key into the website.
+- Do not share your database password.
+- This version intentionally gives the public website READ access only to courses/resources/classes.
+- Teacher/admin upload/edit controls will be added in the next stage.
+
+NEXT STAGE
+After this version is working, we can add:
+1. Teacher/Admin login
+2. Upload PDF notes
+3. Add/edit/delete classes
+4. Student dashboard
+5. MCQ tests and scores
+6. Storage for PDFs
